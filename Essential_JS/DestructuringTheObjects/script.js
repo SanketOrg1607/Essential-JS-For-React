@@ -205,3 +205,10 @@ const updatedBook = {
   pages:5000
 }
 updatedBook
+
+// Template literals
+const summary = `${title} is a book, ${pages} long, written by the ${author}, published in year ${publicationDate.split("-")[0]
+
+}`;
+
+summary

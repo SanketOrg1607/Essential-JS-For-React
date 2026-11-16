@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring 
 
-const book = getBook(2);
+const book = getBook(1);
 book
 
 
@@ -159,9 +159,49 @@ const{title,author,pages,publicationDate,genres,hasMovieAdaptation} = book;
 console.log(title,author, genres)
 
 
-const[primaryGenres, secondaryGenres] = genres;
+// const[primaryGenres, secondaryGenres] = genres;
 
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
 
-console.log(primaryGenres,secondaryGenres);
+// console.log(primaryGenres,secondaryGenres);
+
+
+// Rest/Spread Operator
+// Rest
+const[primaryGenres, secondaryGenres, ...otherGenres] = genres;
+
+console.log(primaryGenres, secondaryGenres, otherGenres);
+
+// Spread Operator 
+
+// Let say we want to add a new genres into the existing genres
+// const newGenres =  [genres, 'Epic fantasy']
+// newGenres;
+
+// but new genres added as a new array not into existing array and we don't want this
+// We need spread operator for this
+
+const newGenres = [...genres, 'Epic fatansy']
+newGenres
+// We can add at the begining and at the end
+
+
+// Similarly we can use this spread operator to add the property for object as well
+// Lets say we have to add new property movie publication date for a current book object
+// const updatedBook = {book, moviePublicationDate:"2012-12-19"}
+// updatedBook
+
+// without using spread operator it is adding a new propety not into existing object
+
+// const updatedBook = {...book, moviePublicationDate:"2012-12-19"}
+// updatedBook
+
+// We can override the existing property as well
+
+const updatedBook = {
+  ...book,
+  moviePublicationDate:"2012-12-19",
+  pages:5000
+}
+updatedBook

@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring 
 
-const book = getBook(1);
+const book = getBook(2);
 book
 
 
@@ -202,13 +202,40 @@ newGenres
 const updatedBook = {
   ...book,
   moviePublicationDate:"2012-12-19",
-  pages:5000
+  // pages:5000
 }
 updatedBook
 
 // Template literals
-const summary = `${title} is a book, ${pages} long, written by the ${author}, published in year ${publicationDate.split("-")[0]
-
-}`;
+const summary = `${title} is a book, ${pages} long, written by the ${author}, published in year ${publicationDate.split("-")[0]}
+. The book has ${hasMovieAdaptation ? "": "not" } been adapte as a movie`;
 
 summary
+console.log(summary)
+
+
+
+// Ternary operators
+
+const pagesRange = pages > 1000 ? 'over thousand' : "less than  1000"
+pagesRange
+
+console.log(`The book has ${pagesRange} pages`)
+
+
+// Arrow functions
+
+// Traditiona funtions
+function getYear(str)
+{
+  return str.split("-")[0];
+}
+
+console.log(getYear(publicationDate));
+
+// Arrow function
+const getYear2 = (str) => 
+  str.split("-")[0]
+
+console.log(getYear(publicationDate));
+

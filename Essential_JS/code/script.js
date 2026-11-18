@@ -239,3 +239,50 @@ const getYear2 = (str) =>
 
 console.log(getYear(publicationDate));
 
+
+
+// ========================================================================================================================================================================================================
+// Short-circuting
+
+// Short circuting for the && operator
+console.log(true && "Some string")
+console.log(false && "Some string")
+console.log(hasMovieAdaptation && "This book has movie")
+
+
+// Falsy values : 0, '', null, undefined
+console.log('jonas' && "Some String")
+
+// Short circuting if the first value is truthy it always return the second value
+// if the first value is false then it always return the falsy value
+
+console.log(0 && "the sanket") 
+
+
+// Short- ciruting for the OR operator
+// if the  firs value is true is return that first value
+console.log(true || "Some string")
+console.log(false || "Some string")
+
+// Use : we can use this to set the default values
+const spanishTranslation = book.translations.spanish || "NOT TRANSALATED"
+spanishTranslation
+
+// but in cases it have some consquesenses as well
+console.log(book.reviews.librarything.reviewsCount)
+const countWrong = book.reviews.librarything.reviewsCount || "NO DATA"
+countWrong
+// there is 0 reviewas but it shows no data
+// To solve this problem Javascript added new operator i.e  nullish coalescing operator
+// When only null and undefined at that time only it gives second value
+
+const count = book.reviews.librarything.reviewsCount ?? "NO DATA"
+count
+
+
+
+
+
+// Optional Chaning operator
+// There are two reviews for the each book that is goodreads and library anything we need to the function that gives the  total count
+

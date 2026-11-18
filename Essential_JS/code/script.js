@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring 
 
-const book = getBook(2);
+const book = getBook(3);
 book
 
 
@@ -269,20 +269,32 @@ const spanishTranslation = book.translations.spanish || "NOT TRANSALATED"
 spanishTranslation
 
 // but in cases it have some consquesenses as well
-console.log(book.reviews.librarything.reviewsCount)
-const countWrong = book.reviews.librarything.reviewsCount || "NO DATA"
-countWrong
-// there is 0 reviewas but it shows no data
-// To solve this problem Javascript added new operator i.e  nullish coalescing operator
-// When only null and undefined at that time only it gives second value
+// console.log(book.reviews.librarything.reviewsCount)
+// const countWrong = book.reviews.librarything.reviewsCount || "NO DATA"
+// countWrong
+// // there is 0 reviewas but it shows no data
+// // To solve this problem Javascript added new operator i.e  nullish coalescing operator
+// // When only null and undefined at that time only it gives second value
 
-const count = book.reviews.librarything.reviewsCount ?? "NO DATA"
-count
-
-
+// const count = book.reviews.librarything.reviewsCount ?? "NO DATA"
+// count
 
 
 
 // Optional Chaning operator
+
 // There are two reviews for the each book that is goodreads and library anything we need to the function that gives the  total count
+
+function getTotalReviewCount(book)
+{
+  const goodreads = book.reviews.goodreads?.reviewsCount ?? 0;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  librarything
+  return goodreads + librarything;
+}
+
+// Get a error cannot read properties of undefined reding reviewscount because book number 3 haven't the librarything review so its taked undefined
+// Modern Javascript have the solution i.e optional chaning which is  make undefined part to nan
+// and we can set the default value if it is undefined by using the nullish coalescing operator
+console.log(getTotalReviewCount(book))
 

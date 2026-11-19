@@ -329,3 +329,14 @@ const essentialData2 = books.map((book) =>
 )
 
 essentialData2
+
+// filter method of the array
+const longBooks = books.filter((book) => book.pages > 500);
+longBooks
+
+const longBooksWithMovie= books.filter((book) => book.pages > 500)
+     .filter((book) => book.hasMovieAdaptation)
+
+const adventureBooks = books.filter((book) => book.genres.includes("adventure"))
+.map(book => book.title)
+adventureBooks

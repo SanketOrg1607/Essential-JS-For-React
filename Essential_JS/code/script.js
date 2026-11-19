@@ -145,6 +145,8 @@ function getBook(id) {
 
 // Destructuring 
 
+/*
+
 const book = getBook(3);
 book
 
@@ -279,7 +281,7 @@ spanishTranslation
 // const count = book.reviews.librarything.reviewsCount ?? "NO DATA"
 // count
 
-
+*/
 
 // Optional Chaning operator
 
@@ -296,5 +298,34 @@ function getTotalReviewCount(book)
 // Get a error cannot read properties of undefined reding reviewscount because book number 3 haven't the librarything review so its taked undefined
 // Modern Javascript have the solution i.e optional chaning which is  make undefined part to nan
 // and we can set the default value if it is undefined by using the nullish coalescing operator
-console.log(getTotalReviewCount(book))
+// console.log(getTotalReviewCount(book))
 
+
+
+
+// Array map method
+
+const books = getBooks();
+books
+
+const titles = books.map((book) => book.title)
+titles
+
+const essentialData = books.map((book) => {
+  return{
+    title:book.title,
+    author:book.author
+  }
+})
+
+essentialData
+
+const essentialData2 = books.map((book) =>
+  ({
+    title:book.title,
+    author:book.author,
+    reviewsCount: getTotalReviewCount(book)
+  })
+)
+
+essentialData2

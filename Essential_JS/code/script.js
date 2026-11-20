@@ -340,3 +340,35 @@ const longBooksWithMovie= books.filter((book) => book.pages > 500)
 const adventureBooks = books.filter((book) => book.genres.includes("adventure"))
 .map(book => book.title)
 adventureBooks
+
+
+// Reduce method 
+// Suppose we want read all the pages in the books and want to know how many page we would to be read
+// solution is to add the pages properties together
+
+ const totalpages = books.reduce((acc,book) => acc+book.pages,0);
+ totalpages
+
+
+ // Sort method
+ const arr = [3,2,6,8]
+const sorted = arr.sort((a,b) => a-b);
+sorted
+arr
+
+// sort method is  a mutes means changes the original array its not like a other map filter reduce method 
+//  a-b means a is lower and b is greater so it returns negative and if it is negative means it is in ascending order
+// b -a means b is lower and a is greater so it returns postive and if it is positive means it is in descending order
+
+// but in react like frameworks we dont want to do it so we create the copy of the array
+// we can do this by arr.slice()
+
+const arr2 = [3,2,6,8]
+const sorted2 = arr2.slice().sort((a,b) => a-b);
+sorted
+arr2
+
+// More practical example
+// We have to sort the books based on the pages
+const sortBasedOnThePages = books.slice().sort((a,b) => a.pages - b.pages);
+sortBasedOnThePages

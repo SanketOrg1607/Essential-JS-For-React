@@ -372,3 +372,32 @@ arr2
 // We have to sort the books based on the pages
 const sortBasedOnThePages = books.slice().sort((a,b) => a.pages - b.pages);
 sortBasedOnThePages
+
+
+
+// Imutable arrays
+// In React we dont want to change the original array 
+
+
+// 1) Add a book book object to array
+
+const newBook = {
+  id:6,
+  title: "Harry Potter and the Chamber of Secretes",
+  author: "J. K. Rowling"
+};
+
+const booksAfterAdd = [...books, newBook]
+booksAfterAdd
+
+
+// 2) Delete book object from array
+const booksAfterDelete = booksAfterAdd.filter(book => book.id !== 3)
+booksAfterDelete
+
+
+// 3) Update book object in the array
+const booksAfterUpdate = booksAfterDelete.map(book => book.id == 1 ? {...book, pages: 1210} : book);
+booksAfterUpdate
+ 
+
